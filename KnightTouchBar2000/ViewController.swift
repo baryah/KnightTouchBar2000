@@ -12,51 +12,84 @@ import Cocoa
 class ViewController: NSViewController {
 
     @IBOutlet weak var scannerCheckbox: NSButton!
+    @IBOutlet weak var themesongCheckbox: NSButton!
     @IBOutlet weak var kittCar: NSImageView!
-    let scannerSound = NSSound(named: "KITT_scanner")
+    
+    var scannerSound: NSSound?
+    var themeSong: NSSound?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.wantsLayer = true
+        setBackground()
         
-        kittCar.image = NSImage(named: "kitt_car.gif")
-        kittCar.frame = CGRect(x: 0, y: 0, width: 400, height: 300)
-        kittCar.animates = true
+        setupImage()
+        setupSounds()
         
-        scannerSound?.loops = true
-        isScannerChecked()
+        updateSoundState(for: scannerCheckbox)
+        updateSoundState(for: themesongCheckbox)
     }
     
     @IBAction func setScannerMusic(_ sender: Any) {
-        isScannerChecked()
+        updateSoundState(for: scannerCheckbox)
     }
     
-    func isScannerChecked() {
+    @IBAction func setThemeSongMusic(_ sender: Any) {
+        updateSoundState(for: themesongCheckbox)
+    }
+    
+    private func setupImage() {
+        if let image = NSImage(named: "kitt_car.gif") {
+            kittCar.image = image
+            kittCar.frame = CGRect(x: 0, y: 0, width: 400, height: 300)
+            kittCar.animates = true
+        } else {
+            print("Error: Image kitt_car.gif not found.")
+        }
+    }
+    
+    private func setupSounds() {
+        scannerSound = NSSound(named: "KITT_scanner")
+        themeSong = NSSound(named: "KnightRiderThemeSong")
         
-        switch scannerCheckbox.state {
-        case NSControl.StateValue.on:
-            scannerCheckbox.title = "Scanner sound on"
-            scannerSound?.play()
-        default:
-            scannerCheckbox.title = "Scanner sound off"
-            scannerSound?.stop()
-        }
+        scannerSound?.loops = true
+        themeSong?.loops = true
+        
+        if scannerSound == nil { print("Error: Scanner sound not found.") }
+        if themeSong == nil { print("Error: Theme song not found.") }
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
+    
+    private func updateSoundState(for checkbox: NSButton) {
+        let isOn = checkbox.state == .on
+        
+        switch checkbox {
+        case scannerCheckbox:
+            checkbox.title = isOn ? "Scanner on" : "Scanner off"
+            playSound(scannerSound, play: isOn)
+        case themesongCheckbox:
+            checkbox.title = isOn ? "Theme Song on" : "Theme Song off"
+            playSound(themeSong, play: isOn)
+        default:
+            break
         }
     }
     
-    override func awakeFromNib() {
-        if self.view.layer != nil {
-            let bgColor: CGColor = NSColor(red: 0.988, green: 0.296, blue: 0.312, alpha: 1).cgColor
-            self.view.layer?.backgroundColor = bgColor
+    private func playSound(_ sound: NSSound?, play: Bool) {
+        guard let sound = sound else { return }
+        
+        DispatchQueue.global(qos: .background).async {
+            if play {
+                sound.play()
+            } else {
+                sound.stop()
+            }
         }
     }
-
-
+    
+    private func setBackground() {
+        if let layer = self.view.layer {
+            layer.backgroundColor = NSColor(red: 0.988, green: 0.296, blue: 0.312, alpha: 1).cgColor
+        }
+    }
 }
-

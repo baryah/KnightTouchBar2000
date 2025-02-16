@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E01D9D52D61CA0B00A05412 /* KnightRiderThemeSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E01D9D42D61CA0B00A05412 /* KnightRiderThemeSong.mp3 */; };
 		534E9E551E2E319100E94FD7 /* KITT_scanner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 534E9E541E2E319100E94FD7 /* KITT_scanner.mp3 */; };
 		534E9E5F1E2E393600E94FD7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 534E9E5E1E2E393600E94FD7 /* Images.xcassets */; };
 		537819F81DD3166A00A1F39E /* kitt_car.gif in Resources */ = {isa = PBXBuildFile; fileRef = 537819F71DD3166A00A1F39E /* kitt_car.gif */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E01D9D42D61CA0B00A05412 /* KnightRiderThemeSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KnightRiderThemeSong.mp3; sourceTree = "<group>"; };
 		534E9E541E2E319100E94FD7 /* KITT_scanner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KITT_scanner.mp3; sourceTree = "<group>"; };
 		534E9E5E1E2E393600E94FD7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		537819F71DD3166A00A1F39E /* kitt_car.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = kitt_car.gif; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				534E9E541E2E319100E94FD7 /* KITT_scanner.mp3 */,
+				4E01D9D42D61CA0B00A05412 /* KnightRiderThemeSong.mp3 */,
 				537819F71DD3166A00A1F39E /* kitt_car.gif */,
 				53FA8DDC1DCDFD1C00FA713F /* AppDelegate.swift */,
 				53FA8DDE1DCDFD1C00FA713F /* ViewController.swift */,
@@ -132,6 +135,7 @@
 			files = (
 				534E9E5F1E2E393600E94FD7 /* Images.xcassets in Resources */,
 				534E9E551E2E319100E94FD7 /* KITT_scanner.mp3 in Resources */,
+				4E01D9D52D61CA0B00A05412 /* KnightRiderThemeSong.mp3 in Resources */,
 				537819F81DD3166A00A1F39E /* kitt_car.gif in Resources */,
 				53FA8DE41DCDFD1C00FA713F /* Main.storyboard in Resources */,
 			);
@@ -280,8 +284,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = S35472353D;
+				DEVELOPMENT_TEAM = 333NKVU68S;
 				INFOPLIST_FILE = KnightTouchBar2000/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AnthonyDaMota.KnightTouchBar2000;
@@ -297,8 +302,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = S35472353D;
+				DEVELOPMENT_TEAM = 333NKVU68S;
 				INFOPLIST_FILE = KnightTouchBar2000/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AnthonyDaMota.KnightTouchBar2000;
